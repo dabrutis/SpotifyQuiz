@@ -151,8 +151,10 @@ app.post("/api/highscores", async (req, res) => {
   }
 });
 
-app.listen(port, function () {
-  console.log('App is listening on port ' + port);
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 function ensureAuthenticated(req, res, next) {
