@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 var localport = 3000;
 //var authCallbackPath = '/index.html';
-var authCallbackPath = 'auth/spotify/callback';
+var authCallbackPath = '/auth/spotify/callback';
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -64,7 +64,7 @@ passport.use(
       //clientSecret: process.env.CLIENT_SECRET,
       clientSecret: 'ed4da973c5ef4a3c9cea45eb94de492e',
       //callbackURL: 'http://localhost:' + localport + authCallbackPath,
-      callbackURL: 'https://spotifysongiq.azurewebsites.net/' + authCallbackPath,
+      callbackURL: 'https://spotifysongiq.azurewebsites.net' + authCallbackPath,
     },
     function (accessToken, refreshToken, expires_in, profile, done) {
       process.nextTick(function () {
