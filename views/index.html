@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% if not user %}
+	<h2>Welcome! Please log in.</h2>
+	<p><a href="/login">login</a></p>
+{% else %}
+	<h1>Music Quiz</h1>
+	<button id="startButton">Start Quiz</button>
+	<div id="question" style="display: none;"></div>
+	<div id="options" style="display: none;"></div>
+	<script src="/quiz.js"></script>
+{% endif %}
+{% endblock %}
