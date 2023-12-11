@@ -8,8 +8,8 @@ require('dotenv').config();
 
 const bodyParser = require('body-parser');
 
-var port = 3000;
-var authCallbackPath = '/index.html';
+//var port = 3000;
+//var authCallbackPath = '/index.html';
 
 passport.serializeUser(function (user, done) {
   done(null, user);
