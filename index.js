@@ -35,7 +35,6 @@ async function getArtist(accessToken) {
     trackName: track.name,
     albumName: track.album.name
   }));
-  console.log(tracksAndAlbums);
 }
 
 const mongoose = require("mongoose");
