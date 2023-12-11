@@ -1,11 +1,5 @@
-# Node.js and Express Hosted on Microsoft Azure Template
-
-Dependencies: Node.js and Express
-
-This repository is a template that can be used to create a Node.js and Express website for hosting on Microsoft Azure.
-
-Initial Usage:
-- npm install express
-- npm start
-
-
+# Spotify IQ
+https://ashy-desert-09761e110.4.azurestaticapps.net/
+David Abrutis
+davidaabrutis@lewisu.edu
+Spotify Authentication heavily inspired by https://github.com/JMPerez/passport-spotify
