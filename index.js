@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 var localport = 3000;
 //var authCallbackPath = '/index.html';
-var authCallbackPath = '/auth/spotify/callback';
+var authCallbackPath = 'auth/spotify/callback';
 
 passport.serializeUser(function (user, done) {
   done(null, user);
