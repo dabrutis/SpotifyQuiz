@@ -40,7 +40,7 @@ async function getArtist(accessToken) {
 
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.DATABASE, {
+mongoose.connect('mongodb+srv://dabrutis:zyWNRX92O7s8YiMl@cluster0.preryr8.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -59,10 +59,12 @@ module.exports = HighScore;
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      //callbackURL: 'http://localhost:' + localport + authCallbackPath,
-      callbackURL: 'https://spotifysongiq.azurewebsites.net/' + authCallbackPath,
+      //clientID: process.env.CLIENT_ID,
+      clientID: '34d0e6eb6a32491a91c9dba78b1a4926',
+      //clientSecret: process.env.CLIENT_SECRET,
+      clientSecret: 'ed4da973c5ef4a3c9cea45eb94de492e',
+      callbackURL: 'http://localhost:' + localport + authCallbackPath,
+      //callbackURL: 'https://spotifysongiq.azurewebsites.net/' + authCallbackPath,
     },
     function (accessToken, refreshToken, expires_in, profile, done) {
       process.nextTick(function () {
