@@ -39,7 +39,7 @@ async function getArtist(accessToken) {
 
 const mongoose = require("mongoose");
 
-mongoose.connect('mongodb+srv://dabrutis:zyWNRX92O7s8YiMl@cluster0.preryr8.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MYSQLCONNSTR_DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -59,9 +59,11 @@ passport.use(
   new SpotifyStrategy(
     {
       //clientID: process.env.CLIENT_ID,
-      clientID: '34d0e6eb6a32491a91c9dba78b1a4926',
+      //clientID: '34d0e6eb6a32491a91c9dba78b1a4926',
+      clientID: process.env.MYSQLCONNSTR_CLIENT_ID,
       //clientSecret: process.env.CLIENT_SECRET,
-      clientSecret: 'ed4da973c5ef4a3c9cea45eb94de492e',
+      //clientSecret: 'ed4da973c5ef4a3c9cea45eb94de492e',
+      clientSecret: process.env.MYSQLCONNSTR_CLIENT_SECRET,
       //callbackURL: 'http://localhost:' + localport + authCallbackPath,
       callbackURL: 'https://spotifysongiq.azurewebsites.net' + authCallbackPath,
     },
