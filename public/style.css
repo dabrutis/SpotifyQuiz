@@ -1,0 +1,116 @@
+*{
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('quicksand.woff') format('woff'); /* WOFF format */
+    /* Add more formats if you have them (TTF, EOT, etc.) */
+    font-weight: normal; /* Adjust font weights if needed */
+    font-style: normal; /* Adjust font styles if needed */
+}
+
+@font-face {
+    font-family: 'Azonix'; /* Font family name */
+    src: url('Azonix.woff') format('woff'); /* WOFF format */
+    /* Add more formats if available */
+    font-weight: normal; /* Adjust font weights if needed */
+    font-style: normal; /* Adjust font styles if needed */
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Sets the .background behind other content */
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#1DB954, #1ED760, #20C659); /* Initial background gradient */
+    z-index: -1;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#178F60, #1AAE63, #1CC479); /* Secondary gradient to transition */
+    opacity: 0; /* Initially hidden */
+    z-index: -1;
+    animation: gradientAnimation 10s ease infinite; /* Change '5s' to the desired duration */
+}
+
+@keyframes gradientAnimation {
+    0%, 25% {
+        opacity: 0;
+    }
+    50%, 75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Azonix', sans-serif;
+    font-size: xx-large;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 25%; /* 25% from the top */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p {
+    text-align: center;
+}
+
+.startButton {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.question{
+    text-align: center;
+}
+
+.options{
+    text-align: center;
+}
+
+a {
+    text-align: center;
+    color: black;
+}
+
+ol {
+    list-style-position: inside;
+    padding-left: 0;
+}

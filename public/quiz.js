@@ -8,9 +8,6 @@ async function fetchTracksAndAlbums() {
       throw new Error('Failed to fetch data');
     }
     const tracksAndAlbums = await response.json(); // Extracting JSON data
-    console.log('Tracks and albums data:', tracksAndAlbums);
-    const dataLength = tracksAndAlbums.length;
-    console.log('Data length:', dataLength);
 
     // Call function to create quiz with the fetched data
     createQuiz(tracksAndAlbums);
@@ -54,6 +51,14 @@ window.onload = async function () {
 
   startButton.addEventListener('click', fetchTracksAndAlbums);
   startButton.style.display = 'block'; // Show the start button explicitly
+  startButton.style.margin = '0 auto'
+
+  // Adjust button style
+  startButton.style.fontSize = '20px'; // Adjust font size
+  startButton.style.padding = '10px 20px'; // Adjust padding
+  startButton.style.borderRadius = '8px'; // Add border radius for a rounded appearance
+  startButton.style.background = 'linear-gradient(to bottom, #1DB954, #1AAE63)'; // Change button background
+  startButton.style.color = 'white'; // Change text color
 
   try {
     const response = await fetch('/api/tracks'); // Fetching data from the server endpoint
@@ -61,9 +66,6 @@ window.onload = async function () {
       throw new Error('Failed to fetch data');
     }
     const tracksAndAlbums = await response.json(); // Extracting JSON data
-    console.log('Tracks and albums data:', tracksAndAlbums);
-    const dataLength = tracksAndAlbums.length;
-    console.log('Data length:', dataLength);
 
     // Call function to create quiz with the fetched data
     createQuiz(tracksAndAlbums);

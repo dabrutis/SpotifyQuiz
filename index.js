@@ -39,7 +39,7 @@ async function getArtist(accessToken) {
 
 const mongoose = require("mongoose");
 
-mongoose.connect(MYSQLCONNSTR_DATABASE, {
+mongoose.connect('mongodb+srv://dabrutis:zyWNRX92O7s8YiMl@cluster0.preryr8.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -59,9 +59,9 @@ passport.use(
   new SpotifyStrategy(
     {
       //clientID: process.env.CLIENT_ID,
-      clientID: MYSQLCONNSTR_CLIENT_ID,
+      clientID: '34d0e6eb6a32491a91c9dba78b1a4926',
       //clientSecret: process.env.CLIENT_SECRET,
-      clientSecret: MYSQLCONNSTR_CLIENT_SECRET,
+      clientSecret: 'ed4da973c5ef4a3c9cea45eb94de492e',
       //callbackURL: 'http://localhost:' + localport + authCallbackPath,
       callbackURL: 'https://spotifysongiq.azurewebsites.net' + authCallbackPath,
     },
@@ -127,6 +127,10 @@ app.get('/logout', function (req, res) {
   });
 });
 
+app.get('/leaderboard', function(req, res) {
+  res.render('leaderboard.html', { user: req.user });
+});
+
 app.get('/api/tracks', (req, res) => {
   res.json(tracksAndAlbums);
 });
@@ -150,6 +154,16 @@ app.post("/api/highscores", async (req, res) => {
     }
   } catch (error) {
     res.status(500).send("Error saving high score");
+  }
+});
+
+app.get('/leaderboard-scores', async (req, res) => {
+  try {
+    const highScores = await HighScore.find().sort({ score: -1 }).limit(10);
+    res.json(highScores);
+  } catch (error) {
+    console.error('Error fetching high scores:', error);
+    res.status(500).json({ error: 'Error fetching high scores' }); // Send an error response
   }
 });
 

@@ -3,9 +3,14 @@
 
 <head>
 	<title>Spotify IQ</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+	<div class="background">
+		<div class="gradient gradient1"></div>
+		<div class="gradient gradient2"></div>
+	</div>
 	{% if not user %}
 	<p>
 		<a href="/">Home</a> |
@@ -15,6 +20,7 @@
 	<p>
 		<a href="/">Home</a> |
 		<a href="/account">Account</a> |
+		<a href="/leaderboard">Leaderboard</a> |
 		<a href="/logout">Log Out</a>
 	</p>
 	{% endif %} {% block content %}{% endblock %}

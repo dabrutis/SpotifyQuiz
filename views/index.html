@@ -2,10 +2,9 @@
 
 {% block content %}
 {% if not user %}
-	<h2>Welcome! Please log in.</h2>
-	<p><a href="/login">login</a></p>
+	<h2>Welcome to Spotify IQ! Please log in.</h2>
 {% else %}
-	<h1>Music Quiz</h1>
+	<h1>Album Quiz</h1>
 	<p>Answer as many questions right as possible. Go for a highscore!</p>
 	<button id="startButton">Start Quiz</button>
 	<div id="question" style="display: none;"></div>

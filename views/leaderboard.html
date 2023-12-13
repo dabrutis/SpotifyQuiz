@@ -1,0 +1,26 @@
+{% extends 'layout.html' %} {% block content %}
+    <h1>High Scores Leaderboard</h1>
+    <ol id="highScoresList"></ol>
+
+    <script>
+        async function fetchAndDisplayHighScores() {
+            try {
+                const response = await fetch('/leaderboard-scores');
+                const highScores = await response.json();
+
+                const highScoresList = document.getElementById('highScoresList');
+                highScores.forEach(score => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Score: ${score.score}`;
+                    highScoresList.appendChild(listItem);
+                });
+            } catch (error) {
+                console.error('Error fetching high scores:', error);
+            }
+        }
+
+        window.onload = () => {
+            fetchAndDisplayHighScores();
+        };
+    </script>
+{% endblock %}
